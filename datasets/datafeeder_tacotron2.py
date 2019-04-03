@@ -38,16 +38,23 @@ def get_path_dict(data_dirs, hparams, config,data_type, n_test=None,rng=np.rando
         if not config.skip_path_filter:
             items = parallel_run( get_frame, paths, desc="filter_by_min_max_frame_batch", parallel=True)  # [('datasets/moon\\data\\012.0287.npz', 130, 21), ('datasets/moon\\data\\003.0149.npz', 209, 37), ...]
 
-            min_n_frame = hparams.min_n_frame   # 5*30
-            max_n_frame =  hparams.max_n_frame - 1  # 5*200 - 5
+            min_n_frame = hparams.min_n_frame      # 5*30
+            max_n_frame = hparams.max_n_frame - 1  # 5*200 - 5
             
             # 다음 단계에서 data가 많이 떨어져 나감. 글자수가 짧은 것들이 탈락됨.
             new_items = [(path, n) for path, n, n_tokens in items if min_n_frame <= n <= max_n_frame and n_tokens >= hparams.min_tokens] # [('datasets/moon\\data\\004.0383.npz', 297), ('datasets/moon\\data\\003.0533.npz', 394),...]
-
-
+            
+            print('%s : 남은 데이터 갯수 : %d' % (data_dir, len(new_items)))
+            if len(new_items) == 0:
+                print('훈련할 데이터 없음. 모두 필터링 됨')
+                break
+            
             new_paths = [path for path, n in new_items]
             new_n_frames = [n for path, n in new_items]
-
+            
+            print(new_items)
+            
+            
             hours = frames_to_hours(new_n_frames,hparams)
 
             log(' [{}] Loaded metadata for {} examples ({:.2f} hours)'.format(data_dir, len(new_n_frames), hours))
