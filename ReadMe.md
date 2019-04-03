@@ -1,3 +1,8 @@
+# setting
+```
+pip install -r requirements.txt
+```
+
 # Multi-Speaker Tocotron2 + Wavenet Vocoder + Korean TTS
 Tacotron2 모델과 Wavenet Vocoder를 결합하여  한국어 TTS구현하는 project입니다.
 Tacotron2 모델을 Multi-Speaker모델로 확장했습니다.
