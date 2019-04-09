@@ -13,16 +13,16 @@ pip install -r requirements.txt
     - │     ├─assets
     - │     ├─audio
     - │     └─video
-# 1) "news_ids.json"을 datasets/son 아래에 복사
+### 1) "news_ids.json"을 datasets/son 아래에 복사
   - "news_ids.json"이 없으면 web상에 있는 앵커브리핑 자료로부터 새로 만들기 때문에 다른 목록이 만들어짐
   
-# 2) 다운로드 코드 실행, 시간이 오래 걸림, video, audio, assets 파일 생성, 743개 파일 22G
+### 2) 다운로드 코드 실행, 시간이 오래 걸림, video, audio, assets 파일 생성, 743개 파일 22G
   - ffmpeg 오류시 audio 추출 안됨
 ```
 python -m datasets.son.download_custom
 ```
 
-# 3) wav 파일을 침묵구간 기준으로 쪼갬, 시간 많이 소요(2~3시간)
+### 3) wav 파일을 침묵구간 기준으로 쪼갬, 시간 많이 소요(2~3시간)
   - 완료시 audio 파일에 wav파일이 잘게 나누어 져있음, 앵커브리핑 1회분 평균 55개
   - 중간에 오류발생시 원본파일 빼고 삭제 후 다시
   - wav파일 path는 환경에 맞게 수정하면 됨
@@ -30,7 +30,7 @@ python -m datasets.son.download_custom
 python -m audio.silence --audio_pattern "./datasets/son/audio/*.wav" --method=pydub
 ```
 
-# 4) 스크립트 교정 작업
+### 4) 스크립트 교정 작업
   - assets에 있는 원문과 Google Speech Recognition API로 사전작업한 "AnchorBriefing-recognition.json" 파일을 참고하여
   - audio 디렉토리에 있는 wav 파일을 직접 들으면서 "AnchorBriefing-recognition.json" 수정
   - 앵커브리핑 1회 수정시 약 10~15분 소요
