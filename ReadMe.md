@@ -2,7 +2,7 @@
 ```
 pip install -r requirements.txt
 ```
-## dataset 구성
+# dataset 구성
   - 앵커브리핑 오디오 다운로드,  wav 파일 분할 등 작업을 위한 코드는 https://github.com/carpedm20/multi-speaker-tacotron-tensorflow 이곳에 있는 코드를 활용. 
   - tacotron에서 " carpedm20"님은 Google Speech Recognition API 결과가 썩 좋지는 못하기 때문에, alignment.py에서, 원문을 참고하여 수정하려는 시도
   - 데이타를 받깅 위한 패키지는 위 명령어로 실행된다. 그러나 ffmpeg 패키지는 잘 설치해야한다.(윈도우에서 성공, 리눅스에서 실패)
@@ -13,7 +13,7 @@ pip install -r requirements.txt
     - │     ├─assets
     - │     ├─audio
     - │     └─video
-### 1) "news_ids.json"을 datasets/son 아래에 복사
+#### 1) "news_ids.json"을 datasets/son 아래에 복사
   - "news_ids.json"이 없으면 web상에 있는 앵커브리핑 자료로부터 새로 만들기 때문에 다른 목록이 만들어짐
   
 ### 2) 다운로드 코드 실행, 시간이 오래 걸림, video, audio, assets 파일 생성, 743개 파일 22G
