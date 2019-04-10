@@ -98,7 +98,7 @@ parser.add_argument('--data_paths', default='D:\\Tacotron2\\data\\moon')
 - tensorboard 사용
   - 서버에서
   >tensorboard --logdir=logdir-tacotron2/<your model>
-  example
+  - example
   >tensorboard --logdir=logdir-tacotron2/son+moon_2019-04-09_16-05-38
 
 
