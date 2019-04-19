@@ -30,6 +30,27 @@ python -m datasets.son.download_custom
 python -m audio.silence --audio_pattern "./datasets/son/audio/*.wav" --method=pydub
 ```
 
+#### 4) Wav -> text, 구글 STT를 이용하여 스크립트 만들기
+  - 구글 STT 설치
+```
+sudo pip install --upgrade google-api-python-client
+sudo pip install google-cloud-speech
+```
+  - 구글 STT 등록 및 json 파일 받기
+    https://cloud.google.com/docs/authentication/getting-started
+    https://webnautes.tistory.com/1247
+
+  - 서비스 계정 키를 위한 환경변수 등록, 시스템-환경변수에서 직접등록이 더 안정, 재부팅!
+```
+set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\GO\Desktop\tacotron\service_account.json
+```
+  - 에러가 난다. librosa==0.5.1로 다운그래이드 해야만 한다
+      data must be floating-point
+```
+python3 -m recognition.google --audio_pattern "./datasets/son/audio/*.*.wav"
+```
+
+
 #### 4) 스크립트 교정 작업
   - assets에 있는 원문과 Google Speech Recognition API로 사전작업한 "AnchorBriefing-recognition.json" 파일을 참고하여
   - audio 디렉토리에 있는 wav 파일을 직접 들으면서 "AnchorBriefing-recognition.json" 수정
