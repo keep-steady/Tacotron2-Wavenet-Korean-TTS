@@ -23,8 +23,10 @@ pip install -r requirements.txt
 python -m datasets.son.download_custom
 ```
   - 문재인 대통령 데이타 다운시
-  download_custom.ipynb
-  
+```
+datasets/moon/download_custom.ipynb
+```
+
 #### 3) wav 파일을 침묵구간 기준으로 쪼갬, 시간 많이 소요(2~3시간)
   - 완료시 audio 파일에 wav파일이 잘게 나누어 져있음, 앵커브리핑 1회분 평균 55개
   - 중간에 오류발생시 원본파일 빼고 삭제 후 다시
