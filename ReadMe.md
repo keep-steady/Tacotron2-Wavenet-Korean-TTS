@@ -37,8 +37,8 @@ sudo pip install --upgrade google-api-python-client
 sudo pip install google-cloud-speech
 ```
   - 구글 STT 등록 및 json 파일 받기
-    https://cloud.google.com/docs/authentication/getting-started
-    https://webnautes.tistory.com/1247
+    - https://cloud.google.com/docs/authentication/getting-started
+    - https://webnautes.tistory.com/1247
 
   - 서비스 계정 키를 위한 환경변수 등록, 시스템-환경변수에서 직접등록이 더 안정, 재부팅!
 ```
